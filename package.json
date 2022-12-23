@@ -1,0 +1,29 @@
+{
+  "name": "hide-impression",
+  "version": "1.0.0",
+  "description": "Browser extension to hide the number of Twitter impressions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./script/build.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robot-Inventor/hide-impression.git"
+  },
+  "keywords": [
+    "twitter",
+    "extension",
+    "addon"
+  ],
+  "author": "Robot-Inventor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robot-Inventor/hide-impression/issues"
+  },
+  "homepage": "https://github.com/Robot-Inventor/hide-impression#readme",
+  "dependencies": {
+    "web-ext": "^7.4.0"
+  }
+}
