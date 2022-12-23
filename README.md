@@ -8,6 +8,8 @@ This extension hides the number of impressions on Twitter and prevents the creat
 
 This is an extension to "not **see** the number of impressions". It cannot be used to "not **show** the number of impressions".
 
+![screenshot](image/screenshot.png)
+
 ## What you can do
 
 - Hide the number of impressions of your tweets and others' tweets on your browser
