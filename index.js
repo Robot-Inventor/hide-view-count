@@ -32,8 +32,12 @@ const hide_view_count_in_detailed_view = () => {
 
 // Wait for timeline to load.
 const body_observer = new MutationObserver(() => {
+    // Outer of the timeline.
     const timeline = document.querySelector("main");
-    if (!timeline) return;
+    // Outer of the elements used for image view mode (images are displayed on the left and tweets on the right).
+    const layer = document.querySelector("#layers");
+
+    if (!(timeline && layer)) return;
 
     body_observer.disconnect();
 
@@ -46,7 +50,18 @@ const body_observer = new MutationObserver(() => {
         childList: true,
         subtree: true
     });
+
+    // Start to observe elements used for image view mode.
+    const layer_observer = new MutationObserver(() => {
+        hide_view_count();
+        hide_view_count_in_detailed_view();
+    });
+    layer_observer.observe(layer, {
+        childList: true,
+        subtree: true
+    });
 });
+
 body_observer.observe(document.body, {
     childList: true,
     subtree: true
