@@ -26,7 +26,7 @@ const hide_view_count_in_detailed_view = () => {
         element.classList.add(checked_tweets_class);
         if (!is_view_count_link(element)) return;
 
-        element.style.display = "none";
+        element.parentElement.parentElement.style.display = "none";
     });
 };
 
