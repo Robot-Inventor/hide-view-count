@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.0] - 2022-12-28
+
+### Fixed
+
+- Resolved incompatibility with "Minimal Theme for Twitter" [#8](https://github.com/Robot-Inventor/hide-view-count/pull/8)
+
 ## [v1.1.0] - 2022-12-25
 
 ### Fixed
