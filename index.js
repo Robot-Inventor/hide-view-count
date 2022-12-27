@@ -14,6 +14,8 @@ const hide_view_count = () => {
         const impression_icon = link_list.filter((e) => is_view_count_link(e));
         if (!impression_icon.length) return;
 
+        // Measures against incompatibility with "Minimal Theme for Twitter" or other extensions. See [#7](https://github.com/Robot-Inventor/hide-view-count/issues/7)
+        impression_icon[0].href = "";
         const impression_icon_outer = impression_icon[0].parentElement;
         impression_icon_outer.style.display = "none";
     });
