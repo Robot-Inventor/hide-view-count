@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.2] - 2022-12-28
+
+### Fixed
+
+- Fixed exceeded character limit in description
+
 ## [v1.2.1] - 2022-12-28
 
 ### Fixed
