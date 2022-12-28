@@ -4,7 +4,7 @@
 
 [日本語で読む](README_ja.md)
 
-This extension hides the number of impressions on Twitter and prevents the creation of an approval monster.
+This extension hides the number of impressions on Twitter and prevents the creation of an approval desire monster. It won't allow the View Count to be displayed for even a second!
 
 This is an extension to "not **see** the number of impressions". It cannot be used to "not **show** the number of impressions".
 
