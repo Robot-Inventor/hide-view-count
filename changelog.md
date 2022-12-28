@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.1] - 2022-12-28
+
+### Fixed
+
+- Fixed some mistranslations and improved descriptions [#10](https://github.com/Robot-Inventor/hide-view-count/pull/10)
+
 ## [v1.2.0] - 2022-12-28
 
 ### Fixed
