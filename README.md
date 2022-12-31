@@ -21,3 +21,10 @@ This is an extension to "not **see** the number of impressions". It cannot be us
 
 - Hide the number of impressions of your Tweets from others
 - Using a client other than the official web version of the Twitter client
+
+## Supported Browsers
+
+- Google Chrome: Supported
+- Mozilla Firefox: Supported
+- Microsoft Edge: Supported
+- Opera: Unsupported but user report says it works
