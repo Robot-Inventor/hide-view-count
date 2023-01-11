@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.3.0] - 2023-01-11
+
+### Changed
+
+- Support for change in display position of View Count in detail view [#17](https://github.com/Robot-Inventor/hide-view-count/pull/17)
+
 ## [v1.2.2] - 2022-12-28
 
 ### Fixed
