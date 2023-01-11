@@ -23,12 +23,11 @@ const hide_view_count = () => {
 
 // Hide view count for detailed view (reply browsing mode).
 const hide_view_count_in_detailed_view = () => {
-    const maybe_view_count_list = document.querySelectorAll(`[data-testid="cellInnerDiv"] [data-testid="tweet"] a[role="link"][dir]:not(${checked_tweets_class})`);
-    maybe_view_count_list.forEach((element) => {
-        element.classList.add(checked_tweets_class);
-        if (!is_view_count_link(element)) return;
-
-        element.parentElement.parentElement.style.display = "none";
+    const time_and_view_count_outer = document.querySelector('[data-testid="cellInnerDiv"] [data-testid="tweet"] time').parentElement.parentElement;
+    // View Count and middle dot
+    const target = time_and_view_count_outer.querySelectorAll('a[role="link"] ~ *');
+    target.forEach((element) => {
+        element.style.display = "none";
     });
 };
 
