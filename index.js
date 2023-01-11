@@ -6,7 +6,7 @@ const is_view_count_link = (element) => {
 
 // Hide view count for normal timeline view.
 const hide_view_count = () => {
-    const tweets = document.body.querySelectorAll(`[data-testid="tweet"]:not(${checked_tweets_class})`);
+    const tweets = document.body.querySelectorAll(`[data-testid="tweet"]:not(.${checked_tweets_class})`);
     tweets.forEach((tweet) => {
         tweet.classList.add(checked_tweets_class);
 
@@ -23,7 +23,9 @@ const hide_view_count = () => {
 
 // Hide view count for detailed view (reply browsing mode).
 const hide_view_count_in_detailed_view = () => {
-    const time_and_view_count_outer = document.querySelector('[data-testid="cellInnerDiv"] [data-testid="tweet"] time').parentElement.parentElement;
+    const time = document.querySelector(`[data-testid="cellInnerDiv"] [data-testid="tweet"] time:not(.${checked_tweets_class})`);
+    time.classList.add(checked_tweets_class);
+    const time_and_view_count_outer = time.parentElement.parentElement;
     // View Count and middle dot
     const target = time_and_view_count_outer.querySelectorAll('a[role="link"] ~ *');
     target.forEach((element) => {
