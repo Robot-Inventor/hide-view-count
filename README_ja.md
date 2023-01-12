@@ -9,7 +9,7 @@ Twitterのインプレッション数を非表示にして、承認欲求モン�
 「インプレッション数を**見たくない**」という人のための拡張機能です。「インプレッション数を**見せたくない**」という用途には利用できません。
 
 - Chrome版：[https://chrome.google.com/webstore/detail/hide-view-count/mmefeobjcchickbjelledfhagoddcklp](https://chrome.google.com/webstore/detail/hide-view-count/mmefeobjcchickbjelledfhagoddcklp)
-- Firefox版：[https://addons.mozilla.org/ja/firefox/addon/hide-view-count/](https://addons.mozilla.org/ja/firefox/addon/hide-view-count/)
+- Firefox版：[https://addons.mozilla.org/firefox/addon/hide-view-count/](https://addons.mozilla.org/firefox/addon/hide-view-count/)
 
 ![スクリーンショット](image/screenshot.png)
 
