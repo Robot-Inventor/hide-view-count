@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.4.0] - 2023-01-12
+
+### Fixed
+
+- Fixed a bug that hides icons and user names of users whose screen name ends with "analytics" [#21](https://github.com/Robot-Inventor/hide-view-count/pull/21)
+- Removed language preference from AMO link in README [#22](https://github.com/Robot-Inventor/hide-view-count/pull/22)
+
 ## [v1.3.0] - 2023-01-11
 
 ### Changed
