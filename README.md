@@ -8,8 +8,9 @@ This extension hides the number of impressions on Twitter and prevents the creat
 
 This is an extension to "not **see** the number of impressions". It cannot be used to "not **show** the number of impressions".
 
-- Chrome：[https://chrome.google.com/webstore/detail/hide-view-count/mmefeobjcchickbjelledfhagoddcklp](https://chrome.google.com/webstore/detail/hide-view-count/mmefeobjcchickbjelledfhagoddcklp)
-- Firefox：[https://addons.mozilla.org/firefox/addon/hide-view-count/](https://addons.mozilla.org/firefox/addon/hide-view-count/)
+- Chrome: [https://chrome.google.com/webstore/detail/hide-view-count/mmefeobjcchickbjelledfhagoddcklp](https://chrome.google.com/webstore/detail/hide-view-count/mmefeobjcchickbjelledfhagoddcklp)
+- Firefox: [https://addons.mozilla.org/firefox/addon/hide-view-count/](https://addons.mozilla.org/firefox/addon/hide-view-count/)
+- UserScript: [https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/index.user.js](https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/index.user.js)
 
 ![screenshot](image/screenshot.png)
 

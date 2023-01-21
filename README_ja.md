@@ -10,6 +10,7 @@ Twitterのインプレッション数を非表示にして、承認欲求モン�
 
 - Chrome版：[https://chrome.google.com/webstore/detail/hide-view-count/mmefeobjcchickbjelledfhagoddcklp](https://chrome.google.com/webstore/detail/hide-view-count/mmefeobjcchickbjelledfhagoddcklp)
 - Firefox版：[https://addons.mozilla.org/firefox/addon/hide-view-count/](https://addons.mozilla.org/firefox/addon/hide-view-count/)
+- UserScript：[https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/index.user.js](https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/index.user.js)
 
 ![スクリーンショット](image/screenshot.png)
 
