@@ -41,13 +41,13 @@ class HideViewCount {
 
     // Hide view count for detail view (reply browsing mode).
     detail_view() {
-        const time = document.querySelector(`[data-testid="cellInnerDiv"] [data-testid="tweet"] time:not(.${checked_tweets_class})`);
+        const time = document.querySelector(`[data-testid="cellInnerDiv"] [data-testid="tweet"] a[aria-describedby] time:not(.${checked_tweets_class})`);
         time.classList.add(checked_tweets_class);
 
-        const time_and_view_count_outer = time.parentElement.parentElement;
+        const time_and_view_count_outer = time.parentElement.parentElement.parentElement;
 
         // View Count and middle dot
-        const target = time_and_view_count_outer.querySelectorAll('a[role="link"] ~ *');
+        const target = time_and_view_count_outer.querySelectorAll('div ~ *');
         target.forEach((element) => {
             element.style.display = "none";
         });
