@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide View Count
 // @namespace    https://github.com/Robot-Inventor/hide-view-count
-// @version      1.5.0
+// @version      2.0.0
 // @description  This extension hides the number of impressions on Twitter and prevents the creation of an approval desire monster. It won't allow the View Count to be displayed for even a second!
 // @author       Robot-Inventor (ろぼいん / @keita_roboin)
 // @match        https://twitter.com/*
