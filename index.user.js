@@ -7,64 +7,10 @@
 // @match        https://twitter.com/*
 // @match        https://mobile.twitter.com/*
 // @match        https://tweetdeck.twitter.com/*
-// @icon         https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/image/icon512.png
+// @icon         https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/public/image/icon512.png
 // @downloadURL  https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/index.user.js
 // @updateURL    https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/index.user.js
 // @grant        none
 // ==/UserScript==
-const checked_tweets_class = "checked-by-hide-view-count";
-const observer_option = {
-    childList: true,
-    subtree: true
-};
-
-class HideViewCount {
-    constructor(target) {
-        const observer = new MutationObserver(() => {
-            this.timeline();
-            this.detail_view();
-        });
-        observer.observe(target, observer_option);
-    }
-
-    // Hide view count for normal timeline view.
-    timeline() {
-        const links = document.body.querySelectorAll(`[data-testid="tweet"] a[aria-label][href$="analytics"]:not(.${checked_tweets_class})`);
-        links.forEach((link) => {
-            link.classList.add(checked_tweets_class);
-            // Measures against incompatibility with "Minimal Theme for Twitter" or other extensions. See [#7](https://github.com/Robot-Inventor/hide-view-count/issues/7)
-            link.href = "";
-            const view_count_outer = link.parentElement;
-            view_count_outer.style.display = "none";
-        });
-    }
-
-    // Hide view count for detail view (reply browsing mode).
-    detail_view() {
-        const time = document.querySelector(`[data-testid="cellInnerDiv"] [data-testid="tweet"] a[aria-describedby] time:not(.${checked_tweets_class})`);
-        time.classList.add(checked_tweets_class);
-
-        const time_and_view_count_outer = time.parentElement.parentElement.parentElement;
-
-        // View Count and middle dot
-        const target = time_and_view_count_outer.querySelectorAll('div ~ *');
-        target.forEach((element) => {
-            element.style.display = "none";
-        });
-    }
-}
-
-// Wait for timeline to load.
-const body_observer = new MutationObserver(() => {
-    // Outer of the timeline.
-    const timeline = document.querySelector("main");
-    // Outer of the elements used for image view mode (images are displayed on the left and tweets on the right).
-    const layer = document.querySelector("#layers");
-
-    if (!(timeline && layer)) return;
-    body_observer.disconnect();
-
-    new HideViewCount(timeline);
-    new HideViewCount(layer);
-});
-body_observer.observe(document.body, observer_option);
+/*! For license information please see index.user.js.LICENSE.txt */
+(()=>{"use strict";var t={531:function(t,e){var n=this&&this.__awaiter||function(t,e,n,o){return new(n||(n=Promise))((function(r,i){function s(t){try{l(o.next(t))}catch(t){i(t)}}function a(t){try{l(o.throw(t))}catch(t){i(t)}}function l(t){var e;t.done?r(t.value):(e=t.value,e instanceof n?e:new n((function(t){t(e)}))).then(s,a)}l((o=o.apply(t,e||[])).next())}))};Object.defineProperty(e,"__esModule",{value:!0}),e.asyncQuerySelectorAll=e.asyncQuerySelector=void 0;const o=(t,e)=>new Promise((n=>{const o=t();if(o instanceof Element&&o||o instanceof NodeList&&o.length)return void n(o);let r=null;const i=new MutationObserver((()=>{const e=t();e&&(i.disconnect(),r&&clearTimeout(r),n(e))}));r=setTimeout((()=>{i.disconnect(),n(null)}),e),i.observe(document.body,{attributes:!0,childList:!0,subtree:!0})}));e.asyncQuerySelector=(t,...e)=>n(void 0,[t,...e],void 0,(function*(t,e=document,n=500){return yield o((()=>e.querySelector(t)),n)})),e.asyncQuerySelectorAll=(t,...e)=>n(void 0,[t,...e],void 0,(function*(t,e=document,n=500){var r;return null!==(r=yield o((()=>e.querySelectorAll(t)),n))&&void 0!==r?r:document.createDocumentFragment().childNodes}))},272:(t,e,n)=>{n.r(e),n.d(e,{Timeline:()=>p,Tweet:()=>r});var o=n(531);class r{tweetElement;constructor(t){this.tweetElement=t}getMenuBar(){const t=this.tweetElement.querySelector("div[role='group'][id]");if(!t)throw new Error("Failed to get menu bar of tweet");return t}get element(){return this.tweetElement}get props(){const t=(t=>{const e=Object.getOwnPropertyNames(t).filter((t=>t.startsWith("__reactProps$")));return e.length?t[e[0]]:null})(this.getMenuBar());if(!function(t){const e=t;return(null!==e&&"object"==typeof e||"function"==typeof e)&&Array.isArray(e.children)&&(null!==e.children[1]&&"object"==typeof e.children[1]||"function"==typeof e.children[1])&&(null!==e.children[1].props&&"object"==typeof e.children[1].props||"function"==typeof e.children[1].props)&&(null!==e.children[1].props.retweetWithCommentLink&&"object"==typeof e.children[1].props.retweetWithCommentLink||"function"==typeof e.children[1].props.retweetWithCommentLink)&&(null!==e.children[1].props.retweetWithCommentLink.state&&"object"==typeof e.children[1].props.retweetWithCommentLink.state||"function"==typeof e.children[1].props.retweetWithCommentLink.state)&&(null!==e.children[1].props.retweetWithCommentLink.state.quotedStatus&&"object"==typeof e.children[1].props.retweetWithCommentLink.state.quotedStatus||"function"==typeof e.children[1].props.retweetWithCommentLink.state.quotedStatus)&&(void 0===e.children[1].props.retweetWithCommentLink.state.quotedStatus.possibly_sensitive||null===e.children[1].props.retweetWithCommentLink.state.quotedStatus.possibly_sensitive||!1===e.children[1].props.retweetWithCommentLink.state.quotedStatus.possibly_sensitive||!0===e.children[1].props.retweetWithCommentLink.state.quotedStatus.possibly_sensitive)&&(void 0===e.children[1].props.retweetWithCommentLink.state.quotedStatus.possibly_sensitive_editable||null===e.children[1].props.retweetWithCommentLink.state.quotedStatus.possibly_sensitive_editable||!1===e.children[1].props.retweetWithCommentLink.state.quotedStatus.possibly_sensitive_editable||!0===e.children[1].props.retweetWithCommentLink.state.quotedStatus.possibly_sensitive_editable)&&"string"==typeof e.children[1].props.retweetWithCommentLink.state.quotedStatus.permalink&&(null!==e.children[1].props.retweetWithCommentLink.state.quotedStatus.user&&"object"==typeof e.children[1].props.retweetWithCommentLink.state.quotedStatus.user||"function"==typeof e.children[1].props.retweetWithCommentLink.state.quotedStatus.user)&&(void 0===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.possibly_sensitive||null===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.possibly_sensitive||!1===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.possibly_sensitive||!0===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.possibly_sensitive)&&"string"==typeof e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.screen_name&&(""===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.profile_interstitial_type||"sensitive_media"===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.profile_interstitial_type||"fake_account"===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.profile_interstitial_type||"offensive_profile_content"===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.profile_interstitial_type||"timeout"===e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.profile_interstitial_type)&&Array.isArray(e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.withheld_in_countries)&&e.children[1].props.retweetWithCommentLink.state.quotedStatus.user.withheld_in_countries.every((t=>"string"==typeof t))}(t))throw new Error("Failed to get React props of tweet");return t.children[1].props.retweetWithCommentLink.state.quotedStatus}async clickRetweetButton(t){const e=await(0,o.asyncQuerySelector)("[data-testid='unretweet'], [data-testid='retweet']",this.tweetElement,t);if(!e)throw new Error("Failed to get retweet button of tweet");e.click()}static async clickQuoteButton(t){const e=await(0,o.asyncQuerySelector)(["[data-testid='Dropdown'] [href='/compose/post']","[data-testid='sheetDialog'] [href='/compose/post']"].join(","),document,t);if(!e)throw new Error("Failed to get quote button of tweet");e.click()}static async getTweetTextBox(t){const e="pro.twitter.com"===location.hostname?"[role='dialog'] [data-text='true'], [role='dialog'] textarea[data-testid='tweetTextarea_0']":"[role='dialog'] [data-text='true'], textarea[data-testid='tweetTextarea_0']",n=await(0,o.asyncQuerySelector)(e,document,t);if(!n)throw new Error("Failed to get text box marker of tweet");const r="TEXTAREA"===n.tagName?n:n.parentElement;if(!r)throw new Error("Failed to get text box of tweet");return r}async quoteTweet(t,e=1e3){try{await this.clickRetweetButton(e),await r.clickQuoteButton(e);const n=await r.getTweetTextBox(e);n.innerHTML=t,n.dispatchEvent(new Event("input",{bubbles:!0}))}catch(e){const n=this.props.permalink;open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${t}\nhttps://twitter.com${n}`)}`,"_blank")}}}const i={randomUUID:"undefined"!=typeof crypto&&crypto.randomUUID&&crypto.randomUUID.bind(crypto)};let s;const a=new Uint8Array(16);function l(){if(!s&&(s="undefined"!=typeof crypto&&crypto.getRandomValues&&crypto.getRandomValues.bind(crypto),!s))throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");return s(a)}const c=[];for(let t=0;t<256;++t)c.push((t+256).toString(16).slice(1));const u=function(t,e,n){if(i.randomUUID&&!e&&!t)return i.randomUUID();const o=(t=t||{}).random||(t.rng||l)();if(o[6]=15&o[6]|64,o[8]=63&o[8]|128,e){n=n||0;for(let t=0;t<16;++t)e[n+t]=o[t];return e}return function(t,e=0){return c[t[e+0]]+c[t[e+1]]+c[t[e+2]]+c[t[e+3]]+"-"+c[t[e+4]]+c[t[e+5]]+"-"+c[t[e+6]]+c[t[e+7]]+"-"+c[t[e+8]]+c[t[e+9]]+"-"+c[t[e+10]]+c[t[e+11]]+c[t[e+12]]+c[t[e+13]]+c[t[e+14]]+c[t[e+15]]}(o)};class p{OBSERVER_OPTIONS={childList:!0,subtree:!0};onNewTweetCallback=null;constructor(t){const e=`twi-ext-checked-${u()}`,n={timeoutMs:1e4,...t},i=new MutationObserver((()=>{if(!this.onNewTweetCallback)return;const t=document.querySelectorAll(`[data-testid="tweet"]:not([${e}])`);if(t.length)for(const n of t)n.setAttribute(e,""),this.onNewTweetCallback(new r(n))}));(0,o.asyncQuerySelector)("main",document,n.timeoutMs).then((t=>{if(!t)throw new Error("twi-ext: Failed to get main element");i.observe(t,this.OBSERVER_OPTIONS)}))}onNewTweet(t){this.onNewTweetCallback=t}}}},e={};function n(o){var r=e[o];if(void 0!==r)return r.exports;var i=e[o]={exports:{}};return t[o].call(i.exports,i,i.exports,n),i.exports}n.d=(t,e)=>{for(var o in e)n.o(e,o)&&!n.o(t,o)&&Object.defineProperty(t,o,{enumerable:!0,get:e[o]})},n.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),n.r=t=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},(new(n(272).Timeline)).onNewTweet((t=>{(t=>{const e=t.element.querySelector("[role='group'] a[href$='analytics']");e&&e.parentElement&&(e.href="",e.parentElement.style.display="none");const n=document.querySelector("a[aria-describedby] time");if(n&&n.parentElement&&n.parentElement.parentElement&&n.parentElement.parentElement.parentElement){const t=n.parentElement.parentElement.parentElement.querySelectorAll("div ~ *");for(const e of t)e.style.display="none"}})(t)}))})();

@@ -9,11 +9,18 @@ const onNewTweet = (tweet: Tweet): void => {
         viewCountWithIcon.parentElement.style.display = "none";
     }
 
-    const viewCountTextOnly = tweetElement.querySelectorAll<HTMLElement>(
-        "div[aria-hidden='true'], div[aria-hidden='true'] + div"
-    );
-    for (const element of viewCountTextOnly) {
-        element.style.display = "none";
+    const time = document.querySelector<HTMLElement>(`a[aria-describedby] time`);
+    if (
+        time &&
+        time.parentElement &&
+        time.parentElement.parentElement &&
+        time.parentElement.parentElement.parentElement
+    ) {
+        const timeAndViewCountOuter = time.parentElement.parentElement.parentElement;
+        const targets = timeAndViewCountOuter.querySelectorAll<HTMLElement>("div ~ *");
+        for (const target of targets) {
+            target.style.display = "none";
+        }
     }
 };
 

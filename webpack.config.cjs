@@ -1,8 +1,9 @@
 const { exec } = require("child_process");
+const chokidar = require("chokidar");
 const CopyFilePlugin = require("copy-webpack-plugin");
 
 class RunCommandsPlugin {
-    updateManifest() {
+    copyManifest() {
         exec("npx ts-node ./script/copyManifest.ts", (err, stdout, stderr) => {
             if (err) {
                 console.error(`Error: ${err}`);
@@ -22,17 +23,27 @@ class RunCommandsPlugin {
                 manifestWatcher = chokidar.watch("src/manifest/**/*.json");
                 manifestWatcher.on("change", (path) => {
                     console.log(`Manifest file changed: ${path}`);
-                    this.updateManifest();
+                    this.copyManifest();
                 });
 
-                this.updateManifest();
+                this.copyManifest();
+                callback();
             } else {
                 callback();
             }
         });
 
         compiler.hooks.afterEmit.tapAsync("RunCommandsPlugin", (compilation, callback) => {
-            this.updateManifest();
+            this.copyManifest();
+
+            exec("npx ts-node ./script/addUserScriptComment.ts", (err, stdout, stderr) => {
+                if (err) {
+                    console.error(`Error: ${err}`);
+                } else {
+                    console.log(stdout);
+                }
+                callback();
+            });
         });
     }
 }
@@ -41,7 +52,8 @@ module.exports = {
     mode: "production",
     entry: {
         "./chrome/js/index.js": "./src/ts/index.ts",
-        "./firefox/js/index.js": "./src/ts/index.ts"
+        "./firefox/js/index.js": "./src/ts/index.ts",
+        "../index.user.js": "./src/ts/index.ts"
     },
     output: {
         filename: "[name]",
