@@ -1,5 +1,23 @@
 # Changelog
 
+## [v2.0.0] - 2024-04-11
+
+### Added
+
+- feat: support Firefox for Android ([#38](https://github.com/Robot-Inventor/hide-view-count/pull/38))
+- feat: support new TweetDeck URL ([#39](https://github.com/Robot-Inventor/hide-view-count/pull/39))
+
+### Fixed
+
+- Performance is now more stable than ever
+
+## [v1.5.0] - 2023-02-26
+
+### Fixed
+
+- Support for Twitter specification changes [3c45ae7](https://github.com/Robot-Inventor/hide-view-count/commit/3c45ae7b560b9c1961c92c1f9f6ff23d9ffdc7df)
+- Fixed a bug that hid the time displayed in the upper right corner of tweets [3c45ae7](https://github.com/Robot-Inventor/hide-view-count/commit/3c45ae7b560b9c1961c92c1f9f6ff23d9ffdc7df)
+
 ## [v1.4.0] - 2023-01-12
 
 ### Fixed
