@@ -106,5 +106,4 @@ dist
 # Snyk chache
 .dccache
 
-manifest.json
 web-ext-artifacts/
