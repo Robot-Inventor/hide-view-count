@@ -41,19 +41,19 @@ npm install
 ### Build
 
 ```powershell
-npm build
+npm run build
 ```
 
-*Both Manifest v2 (for Firefox) and Manifest v3 (for Chrome) files are generated in the following locations
+### Package
+
+```powershell
+npm run package
+```
+
+Both Manifest v2 (for Firefox) and Manifest v3 (for Chrome) files are generated in the following locations.
 
 - Manifest v2: ``web-ext-artifacts/manifest_v2/hide_view_count-<VERSION>.zip``
 - Manifest v3: ``web-ext-artifacts/manifest_v3/hide_view_count-<VERSION>.zip``
-
-### Manifest
-
-The v2 and v3 manifest files are ``manifest/v2.json`` and ``manifest/v3.json`` respectively.
-
-At build time, these files are copied to generate ``manifest.json``. v2 and v3 are built at the same time, but the v2 Manifest file is copied during the v2 build phase and the v3 Manifest file during the v3 build phase.
 
 ### Versioning
 
