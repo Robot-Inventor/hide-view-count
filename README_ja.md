@@ -41,19 +41,19 @@ npm install
 ### ビルド
 
 ```powershell
-npm build
+npm run build
 ```
 
-※Manifest v2（Firefox用）とManifest v3（Chrome用）の両方のファイルが、それぞれ次の場所に生成されます。
+### パッケージ化
+
+```powershell
+npm run package
+```
+
+Manifest v2（Firefox用）とManifest v3（Chrome用）の両方のファイルが、それぞれ次の場所に生成されます。
 
 - Manifest v2：``web-ext-artifacts/manifest_v2/hide_view_count-<VERSION>.zip``
 - Manifest v3：``web-ext-artifacts/manifest_v3/hide_view_count-<VERSION>.zip``
-
-### Manifestファイルについて
-
-v2とv3のManifestファイルはそれぞれ、``manifest/v2.json``と``manifest/v3.json``です。
-
-ビルド時にこれらのファイルをコピーして``manifest.json``を生成します。v2とv3を同時にビルドしますが、v2のビルド段階ではv2、v3のビルド段階ではv3のManifestファイルをコピーします。
 
 ### バージョン番号について
 
