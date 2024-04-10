@@ -17,7 +17,7 @@
                 "https://tweetdeck.twitter.com/*"
             ],
             "js": [
-                "index.js"
+                "js/index.js"
             ]
         }
     ],
