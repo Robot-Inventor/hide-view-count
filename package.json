@@ -6,8 +6,9 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "format": "npx prettier --write ./src/**/*",
-    "format:check": "npx prettier --check ./src/**/*",
+    "format": "prettier --write ./src/**/*",
+    "format:check": "prettier --check ./src/**/*",
+    "lint": "eslint ./src/**/*.ts",
     "package": "ts-node ./script/package.ts",
     "version": "npm run build && git add ."
   },
@@ -27,8 +28,10 @@
   },
   "homepage": "https://github.com/Robot-Inventor/hide-impression#readme",
   "dependencies": {
+    "@robot-inventor/eslint-config": "^0.1.1",
     "chokidar": "^3.6.0",
     "copy-webpack-plugin": "^12.0.2",
+    "eslint": "^9.0.0",
     "prettier": "^3.2.5",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
