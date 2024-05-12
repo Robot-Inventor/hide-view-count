@@ -1,5 +1,3 @@
-require("ts-node").register();
-
 import manifestV2 from "../src/manifest/v2.json";
 import manifestV3 from "../src/manifest/v3.json";
 import packageJson from "../package.json";
