@@ -10,7 +10,10 @@ const user_script_metadata = `// ==UserScript==
 // @author       Robot-Inventor (ろぼいん / @keita_roboin)
 // @match        https://twitter.com/*
 // @match        https://mobile.twitter.com/*
-// @match        https://tweetdeck.twitter.com/*
+// @match        https://pro.twitter.com/*
+// @match        https://x.com/*
+// @match        https://mobile.x.com/*
+// @match        https://pro.x.com/*
 // @icon         https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/public/image/icon512.png
 // @downloadURL  https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/index.user.js
 // @updateURL    https://raw.githubusercontent.com/Robot-Inventor/hide-view-count/main/index.user.js
