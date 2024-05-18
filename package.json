@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Robot-Inventor/hide-impression#readme",
   "dependencies": {
-    "@robot-inventor/eslint-config": "^0.1.1",
+    "@robot-inventor/eslint-config": "^0.2.0",
     "chokidar": "^3.6.0",
     "copy-webpack-plugin": "^12.0.2",
     "eslint": "^9.0.0",
