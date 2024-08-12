@@ -41,6 +41,7 @@
     "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
+    "@robot-inventor/tsconfig-base": "^1.1.0",
     "tsx": "^4.10.1"
   }
 }
