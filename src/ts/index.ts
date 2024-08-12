@@ -1,10 +1,10 @@
-import { Timeline, Tweet } from "twi-ext";
+import { Timeline, type Tweet } from "twi-ext";
 
 // eslint-disable-next-line max-statements
 const onNewTweet = (tweet: Tweet): void => {
     const tweetElement = tweet.element;
     const viewCountWithIcon = tweetElement.querySelector<HTMLAnchorElement>("[role='group'] a[href$='analytics']");
-    if (viewCountWithIcon && viewCountWithIcon.parentElement) {
+    if (viewCountWithIcon?.parentElement) {
         /*
          * Measures against incompatibility with "Minimal Theme for Twitter" or other extensions.
          * See [#7](https://github.com/Robot-Inventor/hide-view-count/issues/7)
@@ -14,12 +14,7 @@ const onNewTweet = (tweet: Tweet): void => {
     }
 
     const time = document.querySelector<HTMLElement>(`a[aria-describedby] time`);
-    if (
-        time &&
-        time.parentElement &&
-        time.parentElement.parentElement &&
-        time.parentElement.parentElement.parentElement
-    ) {
+    if (time?.parentElement?.parentElement?.parentElement) {
         const timeAndViewCountOuter = time.parentElement.parentElement.parentElement;
         const targets = timeAndViewCountOuter.querySelectorAll<HTMLElement>("div ~ *");
         for (const target of targets) {
