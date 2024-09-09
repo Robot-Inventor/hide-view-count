@@ -35,7 +35,7 @@
     "prettier": "^3.2.5",
     "ts-loader": "^9.5.1",
     "twi-ext": "^0.9.0",
-    "typescript": "^5.4.5",
+    "typescript": "^5.6.2",
     "web-ext": "^8.2.0",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4"
