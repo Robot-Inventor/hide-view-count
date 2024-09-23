@@ -31,7 +31,7 @@
     "@robot-inventor/eslint-config": "^6.0.0",
     "chokidar": "^3.6.0",
     "copy-webpack-plugin": "^12.0.2",
-    "eslint": "^9.0.0",
+    "eslint": "^9.11.1",
     "prettier": "^3.2.5",
     "ts-loader": "^9.5.1",
     "twi-ext": "^0.9.0",
