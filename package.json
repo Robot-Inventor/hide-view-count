@@ -34,7 +34,6 @@
     "copy-webpack-plugin": "^12.0.2",
     "eslint": "^9.0.0",
     "prettier": "^3.2.5",
-    "ts-loader": "^9.5.1",
     "twi-ext": "^0.12.0",
     "typescript": "^5.4.5",
     "web-ext": "^8.2.0"

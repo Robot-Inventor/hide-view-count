@@ -75,7 +75,16 @@ const config = defineConfig({
         rules: [
             {
                 test: /\.ts$/u,
-                use: "ts-loader"
+                exclude: [/node_modules/u],
+                loader: "builtin:swc-loader",
+                options: {
+                    jsc: {
+                        parser: {
+                            syntax: "typescript"
+                        }
+                    }
+                },
+                type: "javascript/auto"
             }
         ]
     },
