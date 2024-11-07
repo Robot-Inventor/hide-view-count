@@ -6,12 +6,16 @@ import { watch } from "chokidar";
 class RunCommandsPlugin {
     private static copyManifest(callback?: () => void): void {
         exec("npx tsx ./script/copyManifest.ts", (err, stdout) => {
+            // eslint-disable-next-line no-console
+            console.log("Copying manifest files...");
             if (err) {
                 // eslint-disable-next-line no-console
                 console.error(`Error: ${err.message}`);
             } else {
                 // eslint-disable-next-line no-console
                 console.log(stdout);
+                // eslint-disable-next-line no-console
+                console.log("Finished copying manifest files.");
                 if (callback) {
                     callback();
                 }
@@ -21,27 +25,36 @@ class RunCommandsPlugin {
 
     // eslint-disable-next-line class-methods-use-this
     public apply(compiler: Compiler): void {
+        let isWatchMode = false;
+        let isFirstRun = true;
         let manifestWatcher: ReturnType<typeof watch> | null = null;
 
         compiler.hooks.watchRun.tapAsync("RunCommandsPlugin", (_params, callback) => {
+            isWatchMode = true;
+
             if (manifestWatcher) {
                 callback();
-            } else {
-                manifestWatcher = watch("src/manifest/", {
-                    ignored: (pathString, stats) => Boolean(stats && stats.isFile() && !pathString.endsWith(".json"))
-                });
-                manifestWatcher.on("change", (pathString: string) => {
-                    // eslint-disable-next-line no-console
-                    console.log(`Manifest file changed: ${pathString}`);
-                    RunCommandsPlugin.copyManifest();
-                });
-
-                RunCommandsPlugin.copyManifest(callback);
+                return;
             }
+
+            manifestWatcher = watch("src/manifest/", {
+                ignored: (pathString, stats) => Boolean(stats && stats.isFile() && !pathString.endsWith(".json"))
+            });
+            manifestWatcher.on("change", (pathString: string) => {
+                // eslint-disable-next-line no-console
+                console.log(`Manifest file changed: ${pathString}`);
+                RunCommandsPlugin.copyManifest();
+            });
+
+            callback();
         });
 
         compiler.hooks.afterEmit.tapAsync("RunCommandsPlugin", (_compilation, callback) => {
-            RunCommandsPlugin.copyManifest();
+            if (!isWatchMode || isFirstRun) {
+                RunCommandsPlugin.copyManifest();
+            }
+
+            isFirstRun = false;
 
             exec("npx tsx ./script/addUserScriptComment.ts", (err, stdout) => {
                 if (err) {
