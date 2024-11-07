@@ -6,6 +6,7 @@
   },
   "include": [
     "./src/**/*.ts",
-    "./rspack.config.ts"
+    "./rspack.config.ts",
+    "./script/**/*.ts"
   ]
 }

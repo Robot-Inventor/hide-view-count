@@ -9,7 +9,7 @@
     "watch": "cross-env NODE_OPTIONS=--experimental-transform-types NODE_ENV=development rspack build --watch",
     "format": "prettier --write ./src/**/*",
     "format:check": "prettier --check ./src/**/*",
-    "lint": "eslint ./src/**/*.ts ./rspack.config.ts",
+    "lint": "eslint ./src/**/*.ts ./rspack.config.ts ./script/**/*.ts",
     "package": "tsx ./script/package.ts",
     "version": "npm run build && git add ."
   },

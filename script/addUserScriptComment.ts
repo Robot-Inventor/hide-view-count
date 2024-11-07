@@ -2,7 +2,7 @@ import fs from "fs";
 import packageJson from "../package.json";
 
 const userScript = fs.readFileSync("./index.user.js", "utf8");
-const user_script_metadata = `// ==UserScript==
+const userScriptMetadata = `// ==UserScript==
 // @name         Hide View Count
 // @namespace    https://github.com/Robot-Inventor/hide-view-count
 // @version      ${packageJson.version}
@@ -20,5 +20,5 @@ const user_script_metadata = `// ==UserScript==
 // @grant        none
 // ==/UserScript==
 `;
-const userScriptEdited = user_script_metadata + userScript;
+const userScriptEdited = userScriptMetadata + userScript;
 fs.writeFileSync("./index.user.js", userScriptEdited);
