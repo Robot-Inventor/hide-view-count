@@ -34,7 +34,7 @@
     "eslint": "^9.0.0",
     "prettier": "^3.2.5",
     "ts-loader": "^9.5.1",
-    "twi-ext": "^0.9.0",
+    "twi-ext": "^0.12.0",
     "typescript": "^5.4.5",
     "web-ext": "^8.2.0",
     "webpack": "^5.91.0",
