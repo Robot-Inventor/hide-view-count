@@ -1,23 +1,27 @@
-const { exec } = require("child_process");
-const chokidar = require("chokidar");
-const CopyFilePlugin = require("copy-webpack-plugin");
+import { exec } from "child_process";
+import chokidar from "chokidar";
+import { CopyRspackPlugin, type Compiler } from "@rspack/core";
+import { defineConfig } from "@rspack/cli";
 
 class RunCommandsPlugin {
-    copyManifest() {
-        exec("npx tsx ./script/copyManifest.ts", (err, stdout, stderr) => {
+    private static copyManifest(callback?: () => void) {
+        exec("npx tsx ./script/copyManifest.ts", (err, stdout) => {
             if (err) {
                 console.error(`Error: ${err}`);
             } else {
                 console.log(stdout);
+                if (callback) {
+                    callback();
+                }
             }
         });
     }
 
-    apply(compiler) {
+    public apply(compiler: Compiler) {
         let manifestWatcher;
         let isWatchMode = false;
 
-        compiler.hooks.watchRun.tapAsync("RunCommandsPlugin", (params, callback) => {
+        compiler.hooks.watchRun.tapAsync("RunCommandsPlugin", (_params, callback) => {
             isWatchMode = true;
             if (!manifestWatcher) {
                 manifestWatcher = chokidar.watch("src/manifest/", {
@@ -25,18 +29,17 @@ class RunCommandsPlugin {
                 });
                 manifestWatcher.on("change", (path) => {
                     console.log(`Manifest file changed: ${path}`);
-                    this.copyManifest();
+                    RunCommandsPlugin.copyManifest();
                 });
 
-                this.copyManifest();
-                callback();
+                RunCommandsPlugin.copyManifest(callback);
             } else {
                 callback();
             }
         });
 
-        compiler.hooks.afterEmit.tapAsync("RunCommandsPlugin", (compilation, callback) => {
-            this.copyManifest();
+        compiler.hooks.afterEmit.tapAsync("RunCommandsPlugin", (_compilation, callback) => {
+            RunCommandsPlugin.copyManifest();
 
             exec("npx tsx ./script/addUserScriptComment.ts", (err, stdout, stderr) => {
                 if (err) {
@@ -50,8 +53,10 @@ class RunCommandsPlugin {
     }
 }
 
-module.exports = {
-    mode: "production",
+const isProduction = process.env.NODE_ENV === "production";
+const config = defineConfig({
+    mode: isProduction ? "production" : "development",
+    devtool: isProduction ? false : "source-map",
     entry: {
         "./chrome/js/index.js": "./src/ts/index.ts",
         "./firefox/js/index.js": "./src/ts/index.ts",
@@ -74,7 +79,7 @@ module.exports = {
     },
     plugins: [
         new RunCommandsPlugin(),
-        new CopyFilePlugin({
+        new CopyRspackPlugin({
             patterns: [
                 {
                     context: "./src/_locales/",
@@ -99,4 +104,6 @@ module.exports = {
             ]
         })
     ]
-};
+});
+
+export default config;
