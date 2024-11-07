@@ -20,7 +20,9 @@ class RunCommandsPlugin {
         compiler.hooks.watchRun.tapAsync("RunCommandsPlugin", (params, callback) => {
             isWatchMode = true;
             if (!manifestWatcher) {
-                manifestWatcher = chokidar.watch("src/manifest/**/*.json");
+                manifestWatcher = chokidar.watch("src/manifest/", {
+                    ignored: (pathString, stats) => Boolean(stats && stats.isFile() && !pathString.endsWith(".json"))
+                });
                 manifestWatcher.on("change", (path) => {
                     console.log(`Manifest file changed: ${path}`);
                     this.copyManifest();
