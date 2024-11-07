@@ -7,6 +7,7 @@
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--experimental-transform-types NODE_ENV=production rspack build",
     "watch": "cross-env NODE_OPTIONS=--experimental-transform-types NODE_ENV=development rspack build --watch",
+    "ci:build": "cross-env NODE_OPTIONS=--experimental-transform-types NODE_ENV=production rspack build --env updateUserScripts",
     "format": "prettier --write ./src/**/*",
     "format:check": "prettier --check ./src/**/*",
     "lint": "eslint ./src/**/*.ts ./rspack.config.ts ./script/**/*.ts",

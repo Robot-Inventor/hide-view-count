@@ -4,6 +4,12 @@ import { exec } from "child_process";
 import { watch } from "chokidar";
 
 class RunCommandsPlugin {
+    private readonly env: Record<string, unknown>;
+
+    public constructor(env: Record<string, unknown>) {
+        this.env = env;
+    }
+
     private static copyManifest(callback?: () => void): void {
         exec("npx tsx ./script/copyManifest.ts", (err, stdout) => {
             // eslint-disable-next-line no-console
@@ -23,7 +29,6 @@ class RunCommandsPlugin {
         });
     }
 
-    // eslint-disable-next-line class-methods-use-this
     public apply(compiler: Compiler): void {
         let isWatchMode = false;
         let isFirstRun = true;
@@ -56,29 +61,34 @@ class RunCommandsPlugin {
 
             isFirstRun = false;
 
-            exec("npx tsx ./script/addUserScriptComment.ts", (err, stdout) => {
-                if (err) {
-                    // eslint-disable-next-line no-console
-                    console.error(`Error: ${err.message}`);
-                } else {
-                    // eslint-disable-next-line no-console
-                    console.log(stdout);
-                }
+            if (this.env.updateUserScripts) {
+                exec("npx tsx ./script/addUserScriptComment.ts", (err, stdout) => {
+                    if (err) {
+                        // eslint-disable-next-line no-console
+                        console.error(`Error: ${err.message}`);
+                    } else {
+                        // eslint-disable-next-line no-console
+                        console.log(stdout);
+                    }
+                    callback();
+                });
+            } else {
                 callback();
-            });
+            }
         });
     }
 }
 
 const isProduction = process.env.NODE_ENV === "production";
 /* eslint-disable sort-keys */
-const config = defineConfig({
+// eslint-disable-next-line max-lines-per-function
+const config = defineConfig((env) => ({
     mode: isProduction ? "production" : "development",
     devtool: isProduction ? false : "source-map",
     entry: {
         "./chrome/js/index.js": "./src/ts/index.ts",
         "./firefox/js/index.js": "./src/ts/index.ts",
-        "../index.user.js": "./src/ts/index.ts"
+        ...(env.updateUserScripts ? { "../index.user.js": "./src/ts/index.ts" } : {})
     },
     output: {
         filename: "[name]",
@@ -105,7 +115,7 @@ const config = defineConfig({
         extensions: [".ts", ".js"]
     },
     plugins: [
-        new RunCommandsPlugin(),
+        new RunCommandsPlugin(env),
         new CopyRspackPlugin({
             patterns: [
                 {
@@ -131,7 +141,7 @@ const config = defineConfig({
             ]
         })
     ]
-});
+}));
 /* eslint-enable sort-keys */
 
 export default config;
