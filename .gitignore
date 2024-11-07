@@ -107,3 +107,4 @@ dist
 .dccache
 
 web-ext-artifacts/
+*.map

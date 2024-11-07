@@ -3,9 +3,10 @@
   "version": "2.2.0",
   "description": "Browser extension to hide the number of Twitter impressions",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
+    "build": "cross-env NODE_OPTIONS=--experimental-transform-types NODE_ENV=production rspack build",
+    "watch": "cross-env NODE_OPTIONS=--experimental-transform-types NODE_ENV=development rspack build --watch",
     "format": "prettier --write ./src/**/*",
     "format:check": "prettier --check ./src/**/*",
     "lint": "eslint ./src/**/*.ts",
@@ -36,12 +37,13 @@
     "ts-loader": "^9.5.1",
     "twi-ext": "^0.12.0",
     "typescript": "^5.4.5",
-    "web-ext": "^8.2.0",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "web-ext": "^8.2.0"
   },
   "devDependencies": {
     "@robot-inventor/tsconfig-base": "^1.1.0",
+    "@rspack/cli": "^1.1.0",
+    "@rspack/core": "^1.1.0",
+    "cross-env": "^7.0.3",
     "tsx": "^4.10.1"
   }
 }
