@@ -1,4 +1,5 @@
 import { type Compiler, CopyRspackPlugin } from "@rspack/core";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import { defineConfig } from "@rspack/cli";
 import { exec } from "child_process";
 import { watch } from "chokidar";
@@ -139,7 +140,8 @@ const config = defineConfig((env) => ({
                     to: "firefox/"
                 }
             ]
-        })
+        }),
+        new ForkTsCheckerWebpackPlugin()
     ]
 }));
 /* eslint-enable sort-keys */
