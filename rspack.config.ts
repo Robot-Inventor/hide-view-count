@@ -62,7 +62,7 @@ class RunCommandsPlugin {
 
             isFirstRun = false;
 
-            if (this.env.updateUserScripts) {
+            if (this.env["updateUserScripts"]) {
                 exec("npx tsx ./script/addUserScriptComment.ts", (err, stdout) => {
                     if (err) {
                         // eslint-disable-next-line no-console
@@ -80,7 +80,7 @@ class RunCommandsPlugin {
     }
 }
 
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env["NODE_ENV"] === "production";
 /* eslint-disable sort-keys */
 // eslint-disable-next-line max-lines-per-function
 const config = defineConfig((env) => ({
@@ -89,7 +89,7 @@ const config = defineConfig((env) => ({
     entry: {
         "./chrome/js/index.js": "./src/ts/index.ts",
         "./firefox/js/index.js": "./src/ts/index.ts",
-        ...(env.updateUserScripts ? { "../index.user.js": "./src/ts/index.ts" } : {})
+        ...(env["updateUserScripts"] ? { "../index.user.js": "./src/ts/index.ts" } : {})
     },
     output: {
         filename: "[name]",
