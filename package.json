@@ -1,6 +1,6 @@
 {
   "name": "hide-impression",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Browser extension to hide the number of Twitter impressions",
   "main": "index.js",
   "type": "module",
