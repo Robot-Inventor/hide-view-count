@@ -11,7 +11,7 @@
     "format": "prettier --write ./src/**/*",
     "format:check": "prettier --check ./src/**/*",
     "lint": "eslint ./src/**/*.ts ./rspack.config.ts ./script/**/*.ts",
-    "package": "tsx ./script/package.ts",
+    "package": "cross-env NODE_OPTIONS=--experimental-transform-types node ./script/package.ts",
     "version": "npm run build && git add ."
   },
   "repository": {
@@ -44,7 +44,6 @@
     "@rspack/core": "^1.1.0",
     "@types/node": "^22.10.2",
     "cross-env": "^7.0.3",
-    "fork-ts-checker-webpack-plugin": "^9.0.2",
-    "tsx": "^4.10.1"
+    "fork-ts-checker-webpack-plugin": "^9.0.2"
   }
 }

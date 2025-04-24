@@ -1,5 +1,5 @@
 import fs from "fs";
-import packageJson from "../package.json";
+import packageJson from "../package.json" with { type: "json" };
 
 const userScript = fs.readFileSync("./index.user.js", "utf8");
 const userScriptMetadata = `// ==UserScript==
