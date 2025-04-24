@@ -36,7 +36,7 @@
     "prettier": "^3.2.5",
     "twi-ext": "^0.13.0",
     "typescript": "^5.4.5",
-    "web-ext": "^8.2.0"
+    "web-ext": "^8.6.0"
   },
   "devDependencies": {
     "@robot-inventor/tsconfig-base": "^6.0.0",
