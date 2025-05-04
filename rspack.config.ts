@@ -1,4 +1,9 @@
-import { type Compiler, CopyRspackPlugin } from "@rspack/core";
+import {
+    type Compiler,
+    CopyRspackPlugin,
+    LightningCssMinimizerRspackPlugin,
+    SwcJsMinimizerRspackPlugin
+} from "@rspack/core";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import { defineConfig } from "@rspack/cli";
 import { exec } from "child_process";
@@ -98,6 +103,14 @@ const config = defineConfig((env) => ({
     output: {
         filename: "[name]",
         clean: true
+    },
+    optimization: {
+        minimizer: [
+            new SwcJsMinimizerRspackPlugin({
+                extractComments: true
+            }),
+            new LightningCssMinimizerRspackPlugin({})
+        ]
     },
     module: {
         rules: [
