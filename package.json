@@ -43,7 +43,7 @@
     "@rspack/cli": "^1.1.0",
     "@rspack/core": "^1.1.0",
     "@types/node": "^22.10.2",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2"
   }
 }
