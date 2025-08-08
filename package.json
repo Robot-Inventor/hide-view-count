@@ -35,7 +35,6 @@
     "eslint": "^9.0.0",
     "prettier": "^3.2.5",
     "twi-ext": "^0.15.0",
-    "typescript": "^5.4.5",
     "web-ext": "^8.6.0"
   },
   "devDependencies": {
@@ -44,6 +43,7 @@
     "@rspack/core": "^1.1.0",
     "@types/node": "^24.2.1",
     "cross-env": "^10.0.0",
-    "fork-ts-checker-webpack-plugin": "^9.0.2"
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "typescript": "^5.9.2"
   }
 }
