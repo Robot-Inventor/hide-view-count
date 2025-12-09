@@ -31,7 +31,7 @@
   "homepage": "https://github.com/Robot-Inventor/hide-impression#readme",
   "dependencies": {
     "@robot-inventor/eslint-config": "^11.0.0",
-    "chokidar": "^4.0.0",
+    "chokidar": "^5.0.0",
     "eslint": "^9.0.0",
     "prettier": "^3.2.5",
     "twi-ext": "^0.15.0",
