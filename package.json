@@ -38,7 +38,7 @@
     "web-ext": "^9.0.0"
   },
   "devDependencies": {
-    "@robot-inventor/tsconfig-base": "^6.0.0",
+    "@robot-inventor/tsconfig-base": "^7.0.0",
     "@rspack/cli": "^1.1.0",
     "@rspack/core": "^1.1.0",
     "@types/node": "^25.0.2",
