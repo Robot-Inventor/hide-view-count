@@ -34,7 +34,7 @@
     "chokidar": "^5.0.0",
     "eslint": "^9.0.0",
     "prettier": "^3.2.5",
-    "twi-ext": "^1.0.0",
+    "twi-ext": "^1.0.5",
     "web-ext": "^10.0.0"
   },
   "devDependencies": {
