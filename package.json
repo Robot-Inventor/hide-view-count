@@ -32,7 +32,7 @@
   "dependencies": {
     "@robot-inventor/eslint-config": "^11.0.0",
     "chokidar": "^5.0.0",
-    "eslint": "^9.0.0",
+    "eslint": "^10.2.0",
     "prettier": "^3.2.5",
     "twi-ext": "^1.0.0",
     "web-ext": "^10.0.0"
