@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@robot-inventor/tsconfig-base": "^7.0.0",
-    "@rspack/cli": "^1.1.0",
-    "@rspack/core": "^1.1.0",
+    "@rspack/cli": "^2.0.0",
+    "@rspack/core": "^2.0.0",
     "@types/node": "^25.0.2",
     "cross-env": "^10.0.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
