@@ -2,7 +2,8 @@
   "extends": "@robot-inventor/tsconfig-base/bundler.json",
   "compilerOptions": {
     "declaration": false,
-    "rootDir": "."
+    "rootDir": ".",
+    "types": ["@types/node"]
   },
   "include": [
     "./src/**/*.ts",
