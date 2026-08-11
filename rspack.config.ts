@@ -35,7 +35,6 @@ class RunCommandsPlugin {
         });
     }
 
-    // eslint-disable-next-line max-lines-per-function
     public apply(compiler: Compiler): void {
         let isWatchMode = false;
         let isFirstRun = true;
