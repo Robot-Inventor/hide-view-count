@@ -17,7 +17,7 @@ class RunCommandsPlugin {
     }
 
     private static copyManifest(callback?: () => void): void {
-        exec("cross-env NODE_OPTIONS=--experimental-transform-types node ./script/copyManifest.ts", (err, stdout) => {
+        exec("node ./script/copyManifest.ts", (err, stdout) => {
             // eslint-disable-next-line no-console
             console.log("Copying manifest files...");
             if (err) {
@@ -35,7 +35,6 @@ class RunCommandsPlugin {
         });
     }
 
-    // eslint-disable-next-line max-lines-per-function
     public apply(compiler: Compiler): void {
         let isWatchMode = false;
         let isFirstRun = true;
@@ -69,19 +68,16 @@ class RunCommandsPlugin {
             isFirstRun = false;
 
             if (this.env["updateUserScripts"]) {
-                exec(
-                    "cross-env NODE_OPTIONS=--experimental-transform-types node ./script/addUserScriptComment.ts",
-                    (err, stdout) => {
-                        if (err) {
-                            // eslint-disable-next-line no-console
-                            console.error(`Error: ${err.message}`);
-                        } else {
-                            // eslint-disable-next-line no-console
-                            console.log(stdout);
-                        }
-                        callback();
+                exec("node ./script/addUserScriptComment.ts", (err, stdout) => {
+                    if (err) {
+                        // eslint-disable-next-line no-console
+                        console.error(`Error: ${err.message}`);
+                    } else {
+                        // eslint-disable-next-line no-console
+                        console.log(stdout);
                     }
-                );
+                    callback();
+                });
             } else {
                 callback();
             }
