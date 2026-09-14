@@ -10,7 +10,7 @@
     "ci:build": "cross-env NODE_ENV=production rspack build --env updateUserScripts",
     "format": "prettier --write ./src/**/*",
     "format:check": "prettier --check ./src/**/*",
-    "lint": "eslint ./src/**/*.ts ./rspack.config.ts ./script/**/*.ts",
+    "lint": "oxlint ./src ./rspack.config.ts ./script",
     "package": "node ./script/package.ts",
     "version": "npm run build && git add ."
   },
@@ -30,20 +30,20 @@
   },
   "homepage": "https://github.com/Robot-Inventor/hide-impression#readme",
   "dependencies": {
-    "@robot-inventor/eslint-config": "^13.0.0",
     "chokidar": "^5.0.0",
-    "eslint": "^10.0.0",
     "prettier": "^3.2.5",
     "twi-ext": "^1.0.0",
     "web-ext": "^10.0.0"
   },
   "devDependencies": {
+    "@robot-inventor/oxlint-config": "^0.2.0",
     "@robot-inventor/tsconfig-base": "^7.0.0",
     "@rspack/cli": "^2.0.2",
     "@rspack/core": "^2.0.1",
     "@types/node": "^26.1.2",
     "cross-env": "^10.0.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "oxlint": "^1.83.0",
     "typescript": "^6.0.0"
   }
 }
