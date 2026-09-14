@@ -18,15 +18,15 @@ class RunCommandsPlugin {
 
     private static copyManifest(callback?: () => void): void {
         exec("node ./script/copyManifest.ts", (err, stdout) => {
-            // eslint-disable-next-line no-console
+            // oxlint-disable-next-line no-console
             console.log("Copying manifest files...");
             if (err) {
-                // eslint-disable-next-line no-console
+                // oxlint-disable-next-line no-console
                 console.error(`Error: ${err.message}`);
             } else {
-                // eslint-disable-next-line no-console
+                // oxlint-disable-next-line no-console
                 console.log(stdout);
-                // eslint-disable-next-line no-console
+                // oxlint-disable-next-line no-console
                 console.log("Finished copying manifest files.");
                 if (callback) {
                     callback();
@@ -49,10 +49,10 @@ class RunCommandsPlugin {
             }
 
             manifestWatcher = watch("src/manifest/", {
-                ignored: (pathString, stats) => Boolean(stats && stats.isFile() && !pathString.endsWith(".json"))
+                ignored: (pathString, stats) => Boolean(stats?.isFile() && !pathString.endsWith(".json"))
             });
             manifestWatcher.on("change", (pathString: string) => {
-                // eslint-disable-next-line no-console
+                // oxlint-disable-next-line no-console
                 console.log(`Manifest file changed: ${pathString}`);
                 RunCommandsPlugin.copyManifest();
             });
@@ -70,10 +70,10 @@ class RunCommandsPlugin {
             if (this.env["updateUserScripts"]) {
                 exec("node ./script/addUserScriptComment.ts", (err, stdout) => {
                     if (err) {
-                        // eslint-disable-next-line no-console
+                        // oxlint-disable-next-line no-console
                         console.error(`Error: ${err.message}`);
                     } else {
-                        // eslint-disable-next-line no-console
+                        // oxlint-disable-next-line no-console
                         console.log(stdout);
                     }
                     callback();
@@ -86,8 +86,8 @@ class RunCommandsPlugin {
 }
 
 const isProduction = process.env["NODE_ENV"] === "production";
-/* eslint-disable sort-keys */
-// eslint-disable-next-line max-lines-per-function
+/* oxlint-disable sort-keys */
+// oxlint-disable-next-line max-lines-per-function
 const config = defineConfig((env) => ({
     mode: isProduction ? "production" : "development",
     devtool: isProduction ? false : "source-map",
@@ -157,6 +157,6 @@ const config = defineConfig((env) => ({
         new ForkTsCheckerWebpackPlugin()
     ]
 }));
-/* eslint-enable sort-keys */
+/* oxlint-enable sort-keys */
 
 export default config;
