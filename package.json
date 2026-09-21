@@ -31,7 +31,7 @@
   "homepage": "https://github.com/Robot-Inventor/hide-impression#readme",
   "dependencies": {
     "chokidar": "^5.0.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3.9.8",
     "twi-ext": "^1.0.0",
     "web-ext": "^10.0.0"
   },
