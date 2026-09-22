@@ -1,6 +1,5 @@
 import { Timeline } from "twi-ext";
 
-// oxlint-disable-next-line max-statements
 const onNewTweet = (): void => {
     const viewCountWithIcons = document.querySelectorAll<HTMLAnchorElement>("[role='group'] a[href$='analytics']");
     for (const viewCountWithIcon of viewCountWithIcons) {

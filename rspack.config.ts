@@ -87,7 +87,6 @@ class RunCommandsPlugin {
 
 const isProduction = process.env["NODE_ENV"] === "production";
 /* oxlint-disable sort-keys */
-// oxlint-disable-next-line max-lines-per-function
 const config = defineConfig((env) => ({
     mode: isProduction ? "production" : "development",
     devtool: isProduction ? false : "source-map",
