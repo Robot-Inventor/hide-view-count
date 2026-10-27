@@ -93,7 +93,11 @@ const config = defineConfig((env) => ({
     entry: {
         "./chrome/js/index.js": "./src/ts/index.ts",
         "./firefox/js/index.js": "./src/ts/index.ts",
-        ...(env["updateUserScripts"] ? { "../index.user.js": "./src/ts/index.ts" } : {})
+        ...(env["updateUserScripts"]
+            ? {
+                  "../index.user.js": "./src/ts/index.ts"
+              }
+            : {})
     },
     output: {
         filename: "[name]",
