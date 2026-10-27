@@ -52,11 +52,11 @@ npm run package
 
 Both Manifest v2 (for Firefox) and Manifest v3 (for Chrome) files are generated in the following locations.
 
-- Manifest v2: ``web-ext-artifacts/manifest_v2/hide_view_count-<VERSION>.zip``
-- Manifest v3: ``web-ext-artifacts/manifest_v3/hide_view_count-<VERSION>.zip``
+- Manifest v2: `web-ext-artifacts/manifest_v2/hide_view_count-<VERSION>.zip`
+- Manifest v3: `web-ext-artifacts/manifest_v3/hide_view_count-<VERSION>.zip`
 
 ### Versioning
 
-Follows normal semantic versioning. Use the ``npm version`` command to update the version number.
+Follows normal semantic versioning. Use the `npm version` command to update the version number.
 
-Also, the version number of the extension listed in the manifest file is overwritten by the version number listed in ``package.json``. Therefore, there is no need to edit the version number in the manifest file when updating the version number.
+Also, the version number of the extension listed in the manifest file is overwritten by the version number listed in `package.json`. Therefore, there is no need to edit the version number in the manifest file when updating the version number.
