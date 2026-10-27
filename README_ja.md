@@ -52,11 +52,11 @@ npm run package
 
 Manifest v2（Firefox用）とManifest v3（Chrome用）の両方のファイルが、それぞれ次の場所に生成されます。
 
-- Manifest v2：``web-ext-artifacts/manifest_v2/hide_view_count-<VERSION>.zip``
-- Manifest v3：``web-ext-artifacts/manifest_v3/hide_view_count-<VERSION>.zip``
+- Manifest v2：`web-ext-artifacts/manifest_v2/hide_view_count-<VERSION>.zip`
+- Manifest v3：`web-ext-artifacts/manifest_v3/hide_view_count-<VERSION>.zip`
 
 ### バージョン番号について
 
-通常のセマンティックバージョニングに準拠しています。バージョン番号を更新する際は、``npm version``コマンドを使用します。
+通常のセマンティックバージョニングに準拠しています。バージョン番号を更新する際は、`npm version`コマンドを使用します。
 
-また、Manifestファイル内に記載されている拡張機能のバージョン番号は、``package.json``に記載されているバージョン番号で上書きされます。そのため、バージョン番号を更新する際に、Manifestファイル内のバージョン番号を編集する必要はありません。
+また、Manifestファイル内に記載されている拡張機能のバージョン番号は、`package.json`に記載されているバージョン番号で上書きされます。そのため、バージョン番号を更新する際に、Manifestファイル内のバージョン番号を編集する必要はありません。

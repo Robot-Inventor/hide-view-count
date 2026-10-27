@@ -2,36 +2,35 @@
   "name": "hide-impression",
   "version": "2.2.5",
   "description": "Browser extension to hide the number of Twitter impressions",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "build": "cross-env NODE_ENV=production rspack build",
-    "watch": "cross-env NODE_ENV=development rspack build --watch",
-    "ci:build": "cross-env NODE_ENV=production rspack build --env updateUserScripts",
-    "format": "prettier --write ./src/**/*",
-    "format:check": "prettier --check ./src/**/*",
-    "lint": "oxlint ./src ./rspack.config.ts ./script",
-    "package": "node ./script/package.ts",
-    "version": "npm run build && git add ."
+  "keywords": [
+    "addon",
+    "extension",
+    "twitter"
+  ],
+  "homepage": "https://github.com/Robot-Inventor/hide-impression#readme",
+  "bugs": {
+    "url": "https://github.com/Robot-Inventor/hide-impression/issues"
   },
+  "license": "MIT",
+  "author": "Robot-Inventor",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Robot-Inventor/hide-impression.git"
   },
-  "keywords": [
-    "twitter",
-    "extension",
-    "addon"
-  ],
-  "author": "Robot-Inventor",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Robot-Inventor/hide-impression/issues"
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rspack build",
+    "watch": "cross-env NODE_ENV=development rspack build --watch",
+    "ci:build": "cross-env NODE_ENV=production rspack build --env updateUserScripts",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint ./src ./rspack.config.ts ./script",
+    "package": "node ./script/package.ts",
+    "version": "npm run build && git add ."
   },
-  "homepage": "https://github.com/Robot-Inventor/hide-impression#readme",
   "dependencies": {
     "chokidar": "^6.0.0",
-    "prettier": "^3.9.9",
     "twi-ext": "^1.0.0",
     "web-ext": "^10.0.0"
   },
@@ -43,6 +42,7 @@
     "@types/node": "^26.1.2",
     "cross-env": "^10.0.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "oxfmt": "^0.75.0",
     "oxlint": "^1.83.0",
     "typescript": "^7.0.0"
   }
