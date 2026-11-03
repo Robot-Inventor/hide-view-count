@@ -42,7 +42,7 @@
     "@types/node": "^26.1.2",
     "cross-env": "^10.0.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
-    "oxfmt": "^0.75.0",
+    "oxfmt": "^0.76.0",
     "oxlint": "^1.83.0",
     "typescript": "^7.0.0"
   }
