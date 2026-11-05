@@ -165,5 +165,4 @@ const config = defineConfig((env) => ({
 }));
 /* oxlint-enable sort-keys */
 
-// oxlint-disable-next-line roboin/logical-newline
 export default config;
