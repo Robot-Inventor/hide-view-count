@@ -45,12 +45,14 @@ class RunCommandsPlugin {
 
             if (manifestWatcher) {
                 callback();
+
                 return;
             }
 
             manifestWatcher = watch("src/manifest/", {
                 ignored: (pathString, stats) => Boolean(stats?.isFile() && !pathString.endsWith(".json"))
             });
+
             manifestWatcher.on("change", (pathString: string) => {
                 // oxlint-disable-next-line no-console
                 console.log(`Manifest file changed: ${pathString}`);
@@ -76,6 +78,7 @@ class RunCommandsPlugin {
                         // oxlint-disable-next-line no-console
                         console.log(stdout);
                     }
+
                     callback();
                 });
             } else {
@@ -162,4 +165,5 @@ const config = defineConfig((env) => ({
 }));
 /* oxlint-enable sort-keys */
 
+// oxlint-disable-next-line roboin/logical-newline
 export default config;

@@ -20,5 +20,6 @@ const userScriptMetadata = `// ==UserScript==
 // @grant        none
 // ==/UserScript==
 `;
+
 const userScriptEdited = userScriptMetadata + userScript;
 fs.writeFileSync("./index.user.js", userScriptEdited);
