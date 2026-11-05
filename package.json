@@ -25,7 +25,7 @@
     "ci:build": "cross-env NODE_ENV=production rspack build --env updateUserScripts",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
-    "lint": "oxlint ./src ./rspack.config.ts ./script",
+    "lint": "oxlint src rspack.config.ts script",
     "package": "node ./script/package.ts",
     "version": "npm run build && git add ."
   },
